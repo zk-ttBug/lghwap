@@ -14,10 +14,10 @@ var slider = require('widgets/slider');
 var footer = require('widgets/footer');
 var indexModel = require('./model.js');
 var tools = require('util/tools');
-var next = 0;
-var scrollBase = 0;
-var currentPage = 1;
-var rending = false;
+var next;
+var scrollBase;
+var currentPage;
+var rending;
 
 var index = Vue.extend({
     template: tpl,
@@ -28,6 +28,10 @@ var index = Vue.extend({
         "c-footer": footer()
     },
     ready: function () {
+        next = 0;
+        scrollBase = 0;
+        currentPage = 1;
+        rending = false;
         render();
         bindScroll();
     }
@@ -46,7 +50,7 @@ function render() {
     });
 }
 
-function loadMore(){
+function loadMore() {
     rending = true;
     indexModel.getIndexData(currentPage, function (data) {
         rending = false;
@@ -58,10 +62,10 @@ function scrollHandler() {
     var curScrollTop = window.pageYOffset;
     if (window.pageYOffset >= (parseInt(document.body.offsetHeight - window.screen.availHeight) / 2)) {
         scrollBase = $('#index-wrap').offsetHeight;
-        if(rending === true){
+        if (rending === true) {
             return;
         }
-        if(next < 1){
+        if (next < 1) {
             console.log('已经加载完成!!!!');
             return;
         }
