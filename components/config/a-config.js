@@ -16,6 +16,7 @@ var ajaxType = {
 
 // 请求路径
 var path = {
+    'topiclist': '/api/getTopics', //获取专题列表
 }
 
 
