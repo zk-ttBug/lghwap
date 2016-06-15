@@ -41,7 +41,9 @@ var scrollLoadThr = tools.throttle(scrollHandler, 100);
 
 function render() {
     rending = true;
+    $('#loading').removeClass('hide');
     indexModel.getIndexData(currentPage, function (data) {
+        $('#loading').addClass('hide');
         rending = false;
         var total = data.total;
         next = Math.ceil(parseInt(total) / 10);
@@ -52,7 +54,9 @@ function render() {
 
 function loadMore() {
     rending = true;
+    $('#loading').removeClass('hide');
     indexModel.getIndexData(currentPage, function (data) {
+        $('#loading').addClass('hide');
         rending = false;
         renderTpl(data);
     });
