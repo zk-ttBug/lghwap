@@ -14,27 +14,24 @@ module.exports = {
     menus: [
         {
             id: "index",
-            name: "Home",
+            name: "首页",
+            icon:"fa fa-home",
             cls: "on",
             url: "#!/index"
         },
         {
-            id: "about",
-            name: "About us",
+            id: "history",
+            name: "历史",
+            icon:"fa fa-history",
             cls: "",
-            url: "#!/about"
+            url: "#!/history"
         },
         {
-            id: "contract",
-            name: "Contract us",
+            id: "shop",
+            name: "商城",
+            icon:"fa fa-shopping-cart",
             cls: "",
-            url: "#!/contract"
-        },
-        {
-            id: "quote",
-            name: "Get a quote",
-            cls: "",
-            url: "#!/quote"
+            url: "#!/shop"
         }
     ]
 };

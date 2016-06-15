@@ -1,37 +1,39 @@
 .index-nav {
   position: fixed;
+
   z-index: 96;
   top: 0;
-  padding-top: 5rem;
+  padding-top: 3.5rem;
   width: 100%;
-  height: 3.125rem;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  height: 2.5rem;
+  text-align: center;
   background: #fff;
   -webkit-overflow-scrolling: touch;
 }
 
 
 .index-nav-ul {
-  height: 3.125rem;
+  height: 2.5rem;
   white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  -moz-box-shadow: 0px 2px 2px #999; /* 老的 Firefox */
+  box-shadow: 0px 2px 2px #999;
 }
 ul, ol, menu {
   list-style: none;
 }
 
-.index-nav-ul li:first-child {
-  padding-left: .9375rem;
-}
 .index-nav-ul li {
-  display: inline-block;
-  padding-left: 1.84375rem;
-  overflow: hidden;
+  display: block;
+  -webkit-box-flex: 1;
+  box-sizing: border-box;
+  padding 0 1.25rem
 }
 
 .index-nav-ul .on a {
-  color: #ff7514;
-  border-bottom: .125rem #ff7514 solid;
+  color: #c62828;
+  border-bottom: .125rem #c62828 solid;
 }
 
 .index-nav-ul li a {
