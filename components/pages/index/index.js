@@ -42,8 +42,8 @@ function renderTpl(data){
 
 function setTmpl(arr,data){
     var option = {
-        width:parseInt(data.width),
-        height:parseInt(data.height)
+        width:parseInt(data.imgWidth),
+        height:parseInt(data.imgHeight)
     }
     var result = tools.getImageSize(option);
     arr.push('<div class="index-posts-item">');
@@ -52,7 +52,7 @@ function setTmpl(arr,data){
     arr.push('<span class="index-date">'+data.createDate+'</span>');
     arr.push('</div>');
     arr.push('<div class="index-post-wrap">');
-    arr.push('<img src="'+data.img+'" style="width:'+result.w+'px";height:'+result.h+'px>');
+    arr.push('<img src="'+data.img+'" style="width:'+result.w+'px ;height:'+result.h+'px">');
     arr.push('<div class="index-desc-wrap">');
     arr.push('<p>'+data.desc+'</p>');
     arr.push('</div></div></div>');
