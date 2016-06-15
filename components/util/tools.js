@@ -54,7 +54,22 @@ var getImageSize = function (data) {
 }
 
 
+//节流器
+var throttle = function(fn, delay) {
+    // alert('throttle');
+    var timer = null;
+    return function () {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            fn.apply(context, args);
+        }, delay);
+    };
+}
+
+
 module.exports = {
     getHashParams: getHashParams,
-    getImageSize:getImageSize
+    getImageSize:getImageSize,
+    throttle:throttle
 }
