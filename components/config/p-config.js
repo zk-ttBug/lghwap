@@ -6,9 +6,8 @@
  */
 var pageconfig = {
     index:'pages/index',//移动端首页
-    about:'pages/about',//移动端关于我们页
-    contract:'pages/contract',//移动端联系我们
-    quote:'pages/quote' //发送信息
+    history:'pages/history',//移动端历史页
+    shop:'pages/shop'//移动端商城页
 }
 module.exports = pageconfig
 

@@ -1,32 +1,33 @@
 'use strict';
 
 /**
- * 移动端首页
+ * 移动端历史页
  *
- * @class index
+ * @class history
  * @constructor
  */
 
-var tpl = __inline('quote.tpl');
+var tpl = __inline('history.tpl');
 var head = require('widgets/head');
 var navi = require('widgets/navi');
+var slider = require('widgets/slider');
 var footer = require('widgets/footer');
-var instant;
 
-var quote = Vue.extend({
+var history = Vue.extend({
     template: tpl,
     components:{
         "c-head":head(),
         "c-navi":navi(),
+        "c-slider":slider(),
         "c-footer":footer()
     },
     ready: function () {
-        // console.log(123123);
+        console.log(123123);
     }
 });
 
 var init = function () {
-    return instant = new quote({
+    return new history({
         el: "#page-main",
         replace: false
     })
