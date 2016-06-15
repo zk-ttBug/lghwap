@@ -14,13 +14,13 @@ var topics = {
         },
         {
             id:'1000',
-            img:'http://7xve3e.com1.z0.glb.clouddn.com/t1-500-333.jpg',
+            img:'http://7xve3e.com1.z0.glb.clouddn.com/t10-500-500.jpg',
             url:'http://wwww.baidu.com',
-            title:'蛋糕速递',
+            title:'巧克力蛋糕',
             desc:'天热了午饭吃不下去，喝杯咖啡吃个果子就算过去了',
-            color:'red accent-3',
+            color:'red accent-4',
             imgWidth:'500',
-            imgHeight:'333',
+            imgHeight:'500',
             createDate:'2016-06-15'
         },
         {

@@ -37,6 +37,24 @@ var handleParams = function (paramsArr) {
 }
 
 
+
+var getImageSize = function (data) {
+    var contW = window.innerWidth - 40,
+        contH;
+    if (data.width && data.height) {
+        var whp = (parseInt(data.height) / parseInt(data.width)).toFixed(2);
+        contH = Math.round(contW * whp);
+    } else {
+        contH = parseInt(window.innerHeight / 2);
+    }
+    return {
+        w: contW,
+        h: contH
+    };
+}
+
+
 module.exports = {
-    getHashParams: getHashParams
+    getHashParams: getHashParams,
+    getImageSize:getImageSize
 }
