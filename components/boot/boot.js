@@ -63,7 +63,8 @@ function loadPage(ctx, next) {
             if(page === 'home'){
                 router = 'home'
             }
-            parentcom.$broadcast('navi-update', renpage, router);
+            console.log('route: ' + router);
+            parentcom.$broadcast('navi-update', router);
             runPage(prectx, next, page);
         });
     } else {
@@ -90,7 +91,13 @@ function runPage(ctx, next, page) {
         require.async(pages[page], function (p) {
             if (currentPage && currentPage.destory) currentPage.destory(ctx);
             currentPage = p;
-            if (currentPage.init) currentPage.init(ctx);
+            var parentcom;
+            if (currentPage.init) {
+                parentcom = currentPage.init(ctx);
+            }
+            //console.log(page);
+            parentcom.$broadcast('navi-update', page);
+            //if (currentPage.init) currentPage.init(ctx);
         });
     } else {
         next();

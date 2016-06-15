@@ -12,24 +12,21 @@ var nconfig = require('config/n-config.js');
 var navi = Vue.extend({
     data: function () {
         var showMenu = localStorage.getItem('showMenu');
-        if(showMenu === "show"){
+        if (showMenu === "show") {
             nconfig.defaultClass = "fadeInLeft animated";
         }
         return {
-            nconfig:nconfig,
-            activeMenu:activeMenu
+            nconfig: nconfig,
+            activeMenu: activeMenu
         }
     },
     template: tpl,
     ready: function () {
-        materialize();
     },
     events: {
-        'navi-update': function (page, router) {
-            console.log(page + '-' + router);
-            this.nconfig = this.activeMenu(page, router);
-            console.log(this.nconfig);
-            Vue.nextTick(materialize)
+        'navi-update': function (router) {
+            console.log(router);
+            this.nconfig = this.activeMenu(router);
         }
     },
     props: ['page'],
@@ -39,32 +36,17 @@ var navi = Vue.extend({
 
 /**
  *
- * @param page
  * @param router
  * @returns {Object}
  */
-var activeMenu = function(page, router){
+var activeMenu = function (router) {
     var menuData = nconfig;
     var menus = menuData.menus;
     for (var i = 0; i < menus.length; i++) {
         if (menus[i].id === router) {
-            menus[i].isAct = "active"
-            if (menus[i].isChild === "true") {
-                for (var j = 0; j < menus[i].children.length; j++) {
-                    if (menus[i].children[j].id === page) {
-                        menus[i].children[j].isAct = "active";
-                    } else {
-                        menus[i].children[j].isAct = "";
-                    }
-                }
-            }
+            menus[i].cls = "on"
         } else {
-            menus[i].isAct = "";
-            if (menus[i].isChild === "true") {
-                for (var j = 0; j < menus[i].children.length; j++) {
-                    menus[i].children[j].isAct = "";
-                }
-            }
+            menus[i].cls = "";
         }
     }
     menuData.menus = menus;
