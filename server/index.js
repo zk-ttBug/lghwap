@@ -44,6 +44,9 @@ app.use(middleware.router({
 app.use(middleware.static());
 app.use(middleware.error());
 
+var indexPage = require('./pages/index');
+indexPage.init(app);
+
 if (require.main === module) {
     app.listen(app.get('port'), function () {
         console.log('[%s] Express server listening on port %d',
