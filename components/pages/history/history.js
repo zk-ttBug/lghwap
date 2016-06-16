@@ -83,14 +83,14 @@ function setTmpl(arr, data) {
     var result = tools.getImageSize(option);
     arr.push('<div class="it i-changwen js-enter i-changwen_">');
     arr.push('<div class="changwen-wrap">');
-    arr.push('<img class="changwen-cover galleryLink" src="http://7xve3e.com1.z0.glb.clouddn.com/h2-170-114.jpg">');
+    arr.push('<img class="changwen-cover galleryLink" src="'+data.img+'" style="width:' + 120 + 'px ;height:' + 80 + 'px">');
     arr.push('<div class="changwen-rightCont">');
-    arr.push('<p class="changwen-title">小贱日报 · 每日十则 (6月16日)</p>');
-    arr.push('<p class="changwen-desc">41岁女儿持刀狂捅母亲，只因不给其买贵手机</p>');
+    arr.push('<p class="changwen-title">'+  data.title +'</p>');
+    arr.push('<p class="changwen-desc">' + data.desc + '</p>');
     arr.push('</div></div>');
     arr.push('<div class="lI-meta lI-meta_noShare">');
-    arr.push('<span class="tags deep-purple darken-4">广州</span>');
-    arr.push('<span class="tags orange darken-4">饮食</span>');
+    arr.push('<span class="tags '+tools.getColors()+'">'+  data.local +'</span>');
+    arr.push('<span class="tags '+tools.getColors()+'">'+  data.tag +'</span>');
     arr.push('</div></div>');
     return arr;
 }

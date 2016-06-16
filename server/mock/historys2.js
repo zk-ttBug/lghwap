@@ -3,6 +3,8 @@ var history = {
     list:[
         {
             id:'1000',
+            local:'广州',
+            tag:'饮食',
             img:'http://7xve3e.com1.z0.glb.clouddn.com/h2-170-114.jpg',
             url:'http://wwww.baidu.com',
             title:'五羊新城',
@@ -14,6 +16,8 @@ var history = {
         },
         {
             id:'1000',
+            local:'广州',
+            tag:'饮食',
             img:'http://7xve3e.com1.z0.glb.clouddn.com/h2-170-114.jpg',
             url:'http://wwww.baidu.com',
             title:'五羊新城',

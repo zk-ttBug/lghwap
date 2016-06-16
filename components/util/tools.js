@@ -68,8 +68,40 @@ var throttle = function(fn, delay) {
 }
 
 
+var getColors = function(){
+    var colors = [];
+    colors.push('red darken-1');
+    colors.push('red darken-2');
+    colors.push('red darken-3');
+    colors.push('red darken-4');
+    colors.push('pink darken-1');
+    colors.push('pink darken-2');
+    colors.push('pink darken-3');
+    colors.push('pink darken-4');
+    colors.push('yellow darken-1');
+    colors.push('yellow darken-2');
+    colors.push('yellow darken-3');
+    colors.push('yellow darken-4');
+    colors.push('amber darken-1');
+    colors.push('amber darken-2');
+    colors.push('amber darken-3');
+    colors.push('amber darken-4');
+    colors.push('orange darken-1');
+    colors.push('orange darken-2');
+    colors.push('orange darken-3');
+    colors.push('orange darken-4');
+    colors.push('deep-orange darken-1');
+    colors.push('deep-orange darken-2');
+    colors.push('deep-orange darken-3');
+    colors.push('deep-orange darken-4');
+    var num =  parseInt(Math.random()*parseInt(colors.length));
+    return colors[num];
+}
+
+
 module.exports = {
     getHashParams: getHashParams,
     getImageSize:getImageSize,
-    throttle:throttle
+    throttle:throttle,
+    getColors:getColors
 }

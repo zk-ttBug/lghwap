@@ -108,7 +108,7 @@ function setTmpl(arr, data) {
     var result = tools.getImageSize(option);
     arr.push('<div class="index-posts-item">');
     arr.push(' <div class="index-item_title_bottom index-pic_item_title index-clip_words_2">');
-    arr.push('<span class="index-title red accent-2">' + data.title + '</span>');
+    arr.push('<span class="index-title '+tools.getColors()+'">' + data.title + '</span>');
     arr.push('<span class="index-date">' + data.createDate + '</span>');
     arr.push('</div>');
     arr.push('<div class="index-post-wrap">');
