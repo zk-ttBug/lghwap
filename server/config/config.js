@@ -1,7 +1,7 @@
 'use strict'
 
 var config = {
-    host:'http://10.100.137.74:8080',
+    host:'http://120.25.219.170:8080',
     api:{
         topics:'/api/getTopicList',
         history:'/api/getHistoryList'
