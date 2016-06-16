@@ -4,7 +4,7 @@ var request = require('request');
 var config = require('../../config/config');
 
 var fetchHistorys = function (option, callback,fail) {
-    option.url = config.host + config.api.topics;
+    option.url = config.host + config.api.history;
     console.log('ur:'+option.url);
     request.get(option, function (err, res, body) {
         console.log(err);
