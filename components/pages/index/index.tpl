@@ -4,6 +4,5 @@
 </section>
 
 <section class="index-wrap" id="index-wrap">
-
 </section>
 
