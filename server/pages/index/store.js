@@ -12,7 +12,15 @@ var fetchTopics = function (option, callback,fail) {
         if(err){
             fail();
         }else{
-            var result = JSON.parse(body);
+            var result = body
+            if(typeof(body) === 'string'){
+                try{
+                    result = JSON.parse(body);
+                }catch(e){
+                    result.data={};
+                }
+
+            }
             callback(result.data);
         }
     })
