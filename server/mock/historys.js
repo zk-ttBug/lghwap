@@ -3,7 +3,7 @@ var history = {
     list:[
         {
             id:'1000',
-            local:'广州',
+            address:'广州',
             tag:'饮食',
             img:'http://7xve3e.com1.z0.glb.clouddn.com/h1-170-114.jpg',
             url:'http://wwww.baidu.com',

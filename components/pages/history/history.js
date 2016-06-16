@@ -15,9 +15,12 @@ var footer = require('widgets/footer');
 var hisModel = require('./model.js');
 var tools = require('util/tools');
 var next;
-var scrollBase;
-var currentPage;
-var rending;
+var historyObj = {
+    scrollBase: '',
+    currentPage: '',
+    rending: '',
+}
+
 
 var history = Vue.extend({
     template: tpl,
@@ -29,20 +32,20 @@ var history = Vue.extend({
     },
     ready: function () {
         next = 0;
-        scrollBase = 0;
-        currentPage = 1;
-        rending = false;
+        historyObj.scrollBase = 0;
+        historyObj.currentPage = 1;
+        historyObj.rending = false;
         render();
         bindScroll();
     }
 });
 
 function render() {
-    rending = true;
+    historyObj.rending = true;
     $('#loading').removeClass('hide');
-    hisModel.getHisData(currentPage, function (data) {
+    hisModel.getHisData(historyObj.currentPage, function (data) {
         $('#loading').addClass('hide');
-        rending = false;
+        historyObj.rending = false;
         var total = data.total;
         next = Math.ceil(parseInt(total) / 10);
         console.log('next:' + next);
@@ -54,14 +57,14 @@ function render() {
 function bindScroll() {
     unbindScroll();
     //触底加载绑定的事件
-    $(window).on('scroll', scrollLoadThr);
+    $(window).on('scroll', scrollLoadThrHis);
 }
 
 function unbindScroll() {
-    $(window).off('scroll', scrollLoadThr);
+    $(window).off('scroll');
 }
 
-var scrollLoadThr = tools.throttle(scrollHandler, 100);
+var scrollLoadThrHis = tools.throttle(scrollHandlerHis, 100);
 
 function renderTpl(data) {
     if (next > 0) {
@@ -83,40 +86,40 @@ function setTmpl(arr, data) {
     var result = tools.getImageSize(option);
     arr.push('<div class="it i-changwen js-enter i-changwen_">');
     arr.push('<div class="changwen-wrap">');
-    arr.push('<img class="changwen-cover galleryLink" src="'+data.img+'" style="width:' + 120 + 'px ;height:' + 80 + 'px">');
+    arr.push('<img class="changwen-cover galleryLink" src="' + data.img + '" style="width:' + 120 + 'px ;height:' + 80 + 'px">');
     arr.push('<div class="changwen-rightCont">');
-    arr.push('<p class="changwen-title">'+  data.title +'</p>');
+    arr.push('<p class="changwen-title">' + data.title + '</p>');
     arr.push('<p class="changwen-desc">' + data.desc + '</p>');
     arr.push('</div></div>');
     arr.push('<div class="lI-meta lI-meta_noShare">');
-    arr.push('<span class="tags '+tools.getColors()+'">'+  data.local +'</span>');
-    arr.push('<span class="tags '+tools.getColors()+'">'+  data.tag +'</span>');
+    arr.push('<span class="tags ' + tools.getColors() + '">' + data.address + '</span>');
+    arr.push('<span class="tags ' + tools.getColors() + '">' + data.tag + '</span>');
     arr.push('</div></div>');
     return arr;
 }
 
-function scrollHandler() {
+function scrollHandlerHis() {
     if (window.pageYOffset >= (parseInt(document.body.offsetHeight - window.screen.availHeight) / 2)) {
-        scrollBase = $('#his-warp').offsetHeight;
-        if (rending === true) {
+        historyObj.scrollBase = $('#his-warp').offsetHeight;
+        if (historyObj.rending === true) {
             return;
         }
         if (next < 1) {
             console.log('已经加载完成!!!!');
             return;
         }
-        currentPage++;
+        historyObj.currentPage++;
         loadMore();
     }
 }
 
 
 function loadMore() {
-    rending = true;
+    historyObj.rending = true;
     $('#loading').removeClass('hide');
-    hisModel.getHisData(currentPage, function (data) {
+    hisModel.getHisData(historyObj.currentPage, function (data) {
         $('#loading').addClass('hide');
-        rending = false;
+        historyObj.rending = false;
         renderTpl(data);
     });
 }

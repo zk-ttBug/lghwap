@@ -2,6 +2,7 @@
 
 var top1 = require('../../mock/topics');
 var top2 = require('../../mock/topics2');
+var indexStore = require('./store.js');
 var init = function (app) {
     /**
      * 获取系统时间
@@ -9,26 +10,22 @@ var init = function (app) {
     app.get('/api/getTopics', function (req, res) {
         if (req.query && req.query.page) {
             var page = req.query.page;
-            if (page === '1') {
+            var params = {};
+            params.page =parseInt(page);
+            params.size = 10;
+            indexStore.fetchTopics(params, function (result) {
                 res.send({
                     "code": "200",
                     "msg": "success",
-                    "data": top1
+                    "data": result
                 });
-            } else if (page === '2') {
+            },function(){
                 res.send({
-                    "code": "200",
-                    "msg": "success",
-                    "data": top2
+                    "code": "10050",
+                    "msg": "服务端异常",
+                    "data": {}
                 });
-            } else {
-                res.send({
-                        "code": "200",
-                        "msg": "success",
-                        "data": {}
-                    }
-                );
-            }
+            })
         } else {
             res.send({
                 "code": "10000",

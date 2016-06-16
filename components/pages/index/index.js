@@ -85,7 +85,7 @@ function bindScroll() {
 }
 
 function unbindScroll() {
-    $(window).off('scroll', scrollLoadThr);
+    $(window).off('scroll');
 }
 
 function renderTpl(data) {
