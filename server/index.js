@@ -45,7 +45,9 @@ app.use(middleware.static());
 app.use(middleware.error());
 
 var indexPage = require('./pages/index');
+var hisPage =  require('./pages/history');
 indexPage.init(app);
+hisPage.init(app);
 
 if (require.main === module) {
     app.listen(app.get('port'), function () {

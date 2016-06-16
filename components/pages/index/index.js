@@ -63,7 +63,6 @@ function loadMore() {
 }
 
 function scrollHandler() {
-    var curScrollTop = window.pageYOffset;
     if (window.pageYOffset >= (parseInt(document.body.offsetHeight - window.screen.availHeight) / 2)) {
         scrollBase = $('#index-wrap').offsetHeight;
         if (rending === true) {
