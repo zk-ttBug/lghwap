@@ -84,6 +84,7 @@ function setTmpl(arr, data) {
         height: parseInt(data.imgHeight)
     }
     var result = tools.getImageSize(option);
+    arr.push('<a href="'+data.url+'">');
     arr.push('<div class="it i-changwen js-enter i-changwen_">');
     arr.push('<div class="changwen-wrap">');
     arr.push('<img class="changwen-cover galleryLink" src="' + data.img + '" style="width:' + 120 + 'px ;height:' + 80 + 'px">');
@@ -94,7 +95,7 @@ function setTmpl(arr, data) {
     arr.push('<div class="lI-meta lI-meta_noShare">');
     arr.push('<span class="tags ' + tools.getColors() + '">' + data.address + '</span>');
     arr.push('<span class="tags ' + tools.getColors() + '">' + data.tag + '</span>');
-    arr.push('</div></div>');
+    arr.push('</div></div></a>');
     return arr;
 }
 

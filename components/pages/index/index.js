@@ -106,6 +106,7 @@ function setTmpl(arr, data) {
         height: parseInt(data.imgHeight)
     }
     var result = tools.getImageSize(option);
+    arr.push('<a href="'+data.url+'">');
     arr.push('<div class="index-posts-item">');
     arr.push(' <div class="index-item_title_bottom index-pic_item_title index-clip_words_2">');
     arr.push('<span class="index-title '+tools.getColors()+'">' + data.title + '</span>');
@@ -115,7 +116,7 @@ function setTmpl(arr, data) {
     arr.push('<img src="' + data.img + '" style="width:' + result.w + 'px ;height:' + result.h + 'px">');
     arr.push('<div class="index-desc-wrap">');
     arr.push('<p>' + data.desc + '</p>');
-    arr.push('</div></div></div>');
+    arr.push('</div></div></div></a>');
     return arr;
 }
 
