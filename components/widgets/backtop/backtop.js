@@ -8,13 +8,16 @@
  */
 
 var tpl = __inline('backtop.tpl');
+var tools = require('util/tools');
 var backtop = Vue.extend({
     template: tpl,
     ready: function () {
     },
     props: ['page'],
     methods: {
-
+        onTop:function(){
+            tools.speedUpToTop();
+        }
     },
     replace: false
 });

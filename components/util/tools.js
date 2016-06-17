@@ -99,9 +99,28 @@ var getColors = function(){
 }
 
 
+var speedUpToTop = function() {
+    var now = document.body.scrollTop,
+        speed = Math.floor((0 - now) / 8);
+
+    document.documentElement.scrollTop = now + speed; //标准模式下的浏览器
+    document.body.scrollTop = now + speed; //怪异模式下的浏览器
+
+    if (now <= 0) {
+        //if(backToTop.lazyload) {
+        //    backToTop.lazyload.bind();
+        //}
+        return;
+    } else {
+        var timer = setTimeout(speedUpToTop, 10);
+    }
+}
+
+
 module.exports = {
     getHashParams: getHashParams,
     getImageSize:getImageSize,
     throttle:throttle,
-    getColors:getColors
+    getColors:getColors,
+    speedUpToTop:speedUpToTop
 }
