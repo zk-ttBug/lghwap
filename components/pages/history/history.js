@@ -107,10 +107,12 @@ function setTmpl(arr, data) {
 function scrollHandlerHis() {
     if (window.pageYOffset > 76) {
         $('#backtop').removeClass('hide');
-        //document.getElementsByClassName('backtop')
+        $('#backtop').removeClass('rotateOutDownRight animated');
+        $('#backtop').addClass('rotateInDownRight animated');
+
     } else {
-        $('#backtop').addClass('hide');
-        //document.getElementsByClassName('backtop').display = 'none';
+        $('#backtop').removeClass('rotateInDownRight animated');
+        $('#backtop').addClass('rotateOutDownRight animated');
     }
     if (window.pageYOffset >= (parseInt(document.body.offsetHeight - window.screen.availHeight) / 2)) {
         historyObj.scrollBase = $('#his-warp').offsetHeight;

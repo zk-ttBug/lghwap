@@ -121,7 +121,8 @@ var showMsg = function(str,time){
     $('#msg').html(str);
     $('#msg').removeClass('hide');
     setTimeout(function(){
-        $('#msg').addClass('hide');
+        //$('#msg').addClass('hide');
+        $('#msg').addClass('fadeOutUp animated');
     },time)
 }
 
