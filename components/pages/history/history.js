@@ -51,7 +51,7 @@ function render() {
         $('#loading').addClass('hide');
         historyObj.rending = false;
         var total = data.total;
-        tools.showMsg('已更新'+total+'条数据',3000);
+        tools.showMsg('已更新'+total+'条数据',1000);
         next = Math.ceil(parseInt(total) / 10);
         console.log('next:' + next);
         renderTpl(data);
