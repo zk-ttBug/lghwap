@@ -14,6 +14,7 @@ var slider = require('widgets/slider');
 var footer = require('widgets/footer');
 var backtop = require('widgets/backtop');
 var hisModel = require('./model.js');
+var message = require('widgets/message');
 var tools = require('util/tools');
 var next;
 var historyObj = {
@@ -30,7 +31,8 @@ var history = Vue.extend({
         "c-navi": navi(),
         "c-slider": slider(),
         "c-footer": footer(),
-        "c-backtop":backtop()
+        "c-backtop":backtop(),
+        "c-message":message()
     },
     ready: function () {
         next = 0;
@@ -49,6 +51,7 @@ function render() {
         $('#loading').addClass('hide');
         historyObj.rending = false;
         var total = data.total;
+        tools.showMsg('已更新'+total+'条数据',3000);
         next = Math.ceil(parseInt(total) / 10);
         console.log('next:' + next);
         renderTpl(data);

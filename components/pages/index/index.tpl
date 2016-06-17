@@ -6,4 +6,5 @@
 </section>
 <c-backtop page="index"></c-backtop>
 <c-footer page="index"></c-footer>
+<c-message page="index"></c-message>
 

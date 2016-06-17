@@ -117,10 +117,20 @@ var speedUpToTop = function() {
 }
 
 
+var showMsg = function(str,time){
+    $('#msg').html(str);
+    $('#msg').removeClass('hide');
+    setTimeout(function(){
+        $('#msg').addClass('hide');
+    },time)
+}
+
+
 module.exports = {
     getHashParams: getHashParams,
     getImageSize:getImageSize,
     throttle:throttle,
     getColors:getColors,
-    speedUpToTop:speedUpToTop
+    speedUpToTop:speedUpToTop,
+    showMsg:showMsg
 }

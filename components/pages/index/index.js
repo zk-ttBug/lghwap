@@ -13,6 +13,7 @@ var navi = require('widgets/navi');
 var backtop = require('widgets/backtop');
 var slider = require('widgets/slider');
 var footer = require('widgets/footer');
+var message = require('widgets/message');
 var indexModel = require('./model.js');
 var tools = require('util/tools');
 var next;
@@ -27,7 +28,8 @@ var index = Vue.extend({
         "c-navi": navi(),
         "c-slider": slider(),
         "c-footer": footer(),
-        "c-backtop":backtop()
+        "c-backtop":backtop(),
+        "c-message":message()
     },
     ready: function () {
         next = 0;
@@ -44,10 +46,12 @@ var scrollLoadThr = tools.throttle(scrollHandler, 100);
 function render() {
     rending = true;
     $('#loading').removeClass('hide');
+
     indexModel.getIndexData(currentPage, function (data) {
         $('#loading').addClass('hide');
         rending = false;
         var total = data.total;
+        tools.showMsg('已更新'+total+'条数据',3000);
         next = Math.ceil(parseInt(total) / 10);
         console.log('next:' + next);
         renderTpl(data);

@@ -6,3 +6,4 @@
 </section>
 <c-backtop page="history"></c-backtop>
 <c-footer page="history"></c-footer>
+<c-message page="history"></c-message>
