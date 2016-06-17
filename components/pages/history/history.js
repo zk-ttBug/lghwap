@@ -12,6 +12,7 @@ var head = require('widgets/head');
 var navi = require('widgets/navi');
 var slider = require('widgets/slider');
 var footer = require('widgets/footer');
+var backtop = require('widgets/backtop');
 var hisModel = require('./model.js');
 var tools = require('util/tools');
 var next;
@@ -28,7 +29,8 @@ var history = Vue.extend({
         "c-head": head(),
         "c-navi": navi(),
         "c-slider": slider(),
-        "c-footer": footer()
+        "c-footer": footer(),
+        "c-backtop":backtop()
     },
     ready: function () {
         next = 0;
@@ -100,6 +102,13 @@ function setTmpl(arr, data) {
 }
 
 function scrollHandlerHis() {
+    if (window.pageYOffset > 76) {
+        $('#backtop').removeClass('hide');
+        //document.getElementsByClassName('backtop')
+    } else {
+        $('#backtop').addClass('hide');
+        //document.getElementsByClassName('backtop').display = 'none';
+    }
     if (window.pageYOffset >= (parseInt(document.body.offsetHeight - window.screen.availHeight) / 2)) {
         historyObj.scrollBase = $('#his-warp').offsetHeight;
         if (historyObj.rending === true) {

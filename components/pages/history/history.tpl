@@ -4,3 +4,4 @@
 </section>
 <section class="his-warp" id="his-warp">
 </section>
+<c-backtop page="history"></c-backtop>

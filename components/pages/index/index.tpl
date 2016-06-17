@@ -4,4 +4,5 @@
 </section>
 <section class="index-wrap" id="index-wrap">
 </section>
+<c-backtop page="index"></c-backtop>
 

@@ -10,6 +10,7 @@
 var tpl = __inline('index.tpl');
 var head = require('widgets/head');
 var navi = require('widgets/navi');
+var backtop = require('widgets/backtop');
 var slider = require('widgets/slider');
 var footer = require('widgets/footer');
 var indexModel = require('./model.js');
@@ -25,7 +26,8 @@ var index = Vue.extend({
         "c-head": head(),
         "c-navi": navi(),
         "c-slider": slider(),
-        "c-footer": footer()
+        "c-footer": footer(),
+        "c-backtop":backtop()
     },
     ready: function () {
         next = 0;
@@ -63,6 +65,13 @@ function loadMore() {
 }
 
 function scrollHandler() {
+    if (window.pageYOffset > 76) {
+        $('#backtop').removeClass('hide');
+        //document.getElementsByClassName('backtop')
+    } else {
+        $('#backtop').addClass('hide');
+        //document.getElementsByClassName('backtop').display = 'none';
+    }
     if (window.pageYOffset >= (parseInt(document.body.offsetHeight - window.screen.availHeight) / 2)) {
         scrollBase = $('#index-wrap').offsetHeight;
         if (rending === true) {
