@@ -8,7 +8,6 @@ var fetchTopics = function (option, callback,fail) {
     console.log(option);
     console.log('ur:'+option.url);
     request.get(option, function (err, res, body) {
-        console.log(err);
         if(err){
             fail();
         }else{
@@ -18,6 +17,7 @@ var fetchTopics = function (option, callback,fail) {
                     result = JSON.parse(body);
                 }catch(e){
                     result.data={};
+                    fail();
                 }
 
             }

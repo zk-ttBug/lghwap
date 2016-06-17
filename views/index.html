@@ -24,6 +24,11 @@
     <div class="double-bounce1"></div>
     <div class="double-bounce2"></div>
 </div>
+<div class="errPage hide">
+    <img src="./img/500_icon.png" style="width: 50px;height: 50px;">
+    <div>站点升级处理中...</div>
+    <div class="err-btn  red darken-4">重试</div>
+</div>
 </body>
 <footer>
     <script src="lib/zepto.min.js"></script>
@@ -35,6 +40,11 @@
         require.async(['boot'], function (boot) {
             boot();
         });
+    </script>
+    <script>
+        $('.err-btn').bind('click',function(){
+            location.reload();
+        })
     </script>
 </footer>
 </html>
